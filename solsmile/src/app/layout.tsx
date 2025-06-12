@@ -10,7 +10,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Based Smiles - Get Rewarded for Your Smile",
+  title: "SolSmile - Get Rewarded for Your Smile",
   description: "Upload your smiling selfie and earn USDC rewards on Solana",
 };
 

@@ -1,8 +1,8 @@
-# Based Smiles ✨
+# SolSmile ✨
 
 ## About the Project
 
-Based Smiles is a Web3 application on Solana Devnet that rewards genuine smiles with USDC. The flow:
+SolSmile is a Web3 application on Solana Devnet that rewards genuine smiles with USDC. The flow:
 
 1. User uploads a selfie 📸
 2. AI (Gemini) analyzes the smile score
