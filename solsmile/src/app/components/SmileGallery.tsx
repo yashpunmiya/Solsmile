@@ -18,7 +18,7 @@ const mockImages: SmileImage[] = [
     created_at: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString() // 2 hours ago
   },
   {
-    url: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
+    url: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
     score: 8.7,
     created_at: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString() // 5 hours ago
   },
