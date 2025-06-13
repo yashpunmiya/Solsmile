@@ -3,7 +3,7 @@
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useState, useEffect, useRef } from 'react';
-import { useSupabase } from './providers/SupabaseProvider';
+import { useLocalStorage } from './providers/LocalStorageProvider';
 import { useGemini } from './providers/GeminiProvider';
 import { useSmartContract } from './hooks/useSmartContract';
 import { useTokenBalance } from './hooks/useTokenBalance';
@@ -12,7 +12,7 @@ import { FiCamera, FiUpload, FiImage, FiDollarSign, FiSmile } from 'react-icons/
 
 export default function Home() {
   const wallet = useWallet();
-  const { uploadImage, saveSmileScore } = useSupabase();
+  const { uploadImage, saveSmileScore } = useLocalStorage();
   const { analyzeSmile } = useGemini();
   const { claimReward, donate } = useSmartContract();
   const { userBalance, poolBalance, loading: balanceLoading, refreshBalances } = useTokenBalance();

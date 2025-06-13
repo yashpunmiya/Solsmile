@@ -14,7 +14,14 @@ interface Props {
 }
 
 export const GeminiProvider: FC<Props> = ({ children }) => {
-    const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY!);
+    // Use the API key from environment variables
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    
+    if (!apiKey) {
+        console.error('NEXT_PUBLIC_GEMINI_API_KEY is not defined in environment variables');
+    }
+    
+    const genAI = new GoogleGenerativeAI(apiKey || '');
 
     const analyzeSmile = async (imageUrl: string): Promise<number> => {
         try {

@@ -19,7 +19,9 @@ interface Props {
 }
 
 export const WalletContextProvider: FC<Props> = ({ children }) => {
-    const endpoint = useMemo(() => clusterApiUrl('devnet'), []);
+    // Use the network from environment variables or default to devnet
+    const network = process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet';
+    const endpoint = useMemo(() => clusterApiUrl(network as 'devnet' | 'testnet' | 'mainnet-beta'), [network]);
     const wallets = useMemo(
         () => [
             new PhantomWalletAdapter(),

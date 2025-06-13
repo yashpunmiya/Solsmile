@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { WalletContextProvider } from "./providers/WalletContextProvider";
-import { SupabaseProvider } from "./providers/SupabaseProvider";
+import { LocalStorageProvider } from "./providers/LocalStorageProvider";
 import { GeminiProvider } from "./providers/GeminiProvider";
 
 const geist = Geist({
@@ -23,11 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geist.className} bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-purple-900 min-h-screen`}>
         <WalletContextProvider>
-          <SupabaseProvider>
+          <LocalStorageProvider>
             <GeminiProvider>
               {children}
             </GeminiProvider>
-          </SupabaseProvider>
+          </LocalStorageProvider>
         </WalletContextProvider>
       </body>
     </html>

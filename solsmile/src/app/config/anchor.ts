@@ -1,10 +1,19 @@
 import { PublicKey } from '@solana/web3.js';
 const TOKEN_PROGRAM_ID = new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA');
 
-export const PROGRAM_ID = new PublicKey('FQn8MWGWrtSsittvBV8qfJhKRhaqZA68JSUAc8hJrtPZ');
-export const USDC_MINT = new PublicKey('Dk4r51T9fVg5UVq2rT5FC9KA7oGAyiahAQUEjS7QDAt1');
-export const RECIPIENT_TOKEN_ACCOUNT = new PublicKey('8hZyHTQLYoPh6ugqw7K2E6uKp2v19zy71t8EngH8c89o');
-export const POOL_PDA = new PublicKey('SWqn1i9kJK3yiEanzpG9SGq4m4X3vp3ZwTWtGYKq8YN');
+// Use environment variables for contract addresses or fall back to hardcoded values
+export const PROGRAM_ID = new PublicKey(
+  process.env.NEXT_PUBLIC_PROGRAM_ID || 'FQn8MWGWrtSsittvBV8qfJhKRhaqZA68JSUAc8hJrtPZ'
+);
+export const USDC_MINT = new PublicKey(
+  process.env.NEXT_PUBLIC_USDC_MINT || 'Dk4r51T9fVg5UVq2rT5FC9KA7oGAyiahAQUEjS7QDAt1'
+);
+export const RECIPIENT_TOKEN_ACCOUNT = new PublicKey(
+  process.env.NEXT_PUBLIC_RECIPIENT_TOKEN_ACCOUNT || '8hZyHTQLYoPh6ugqw7K2E6uKp2v19zy71t8EngH8c89o'
+);
+export const POOL_PDA = new PublicKey(
+  process.env.NEXT_PUBLIC_POOL_PDA || 'SWqn1i9kJK3yiEanzpG9SGq4m4X3vp3ZwTWtGYKq8YN'
+);
 
 // PDAs
 export const getPoolAuthority = () => {

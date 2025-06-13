@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import { FiAward, FiCalendar, FiStar } from 'react-icons/fi';
 
 interface SmileImage {
@@ -49,26 +48,22 @@ export default function SmileGallery() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    );
-
     const fetchImages = async () => {
       try {
-        const { data, error } = await supabase
-          .from('smile_images')
-          .select('*')
-          .gte('score', 5)
-          .order('created_at', { ascending: false });
-
-        if (error) throw error;
+        // Get images from localStorage
+        const imagesJson = localStorage.getItem('smile_images') || '[]';
+        const storedImages: SmileImage[] = JSON.parse(imagesJson);
+        
+        // Filter images with score >= 5 and sort by created_at (newest first)
+        const filteredImages = storedImages
+          .filter(img => img.score >= 5)
+          .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
         
         // Combine real data with mock data if real data is empty or has few entries
-        if (!data || data.length < 3) {
+        if (!filteredImages || filteredImages.length < 3) {
           setImages(mockImages);
         } else {
-          setImages(data);
+          setImages(filteredImages);
         }
       } catch (error) {
         console.error('Error fetching images:', error);

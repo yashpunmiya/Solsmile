@@ -19,6 +19,7 @@ Built using Anchor framework with Token Program for USDC transfers.
 - **claim_reward** → If a user's last claim wasn't today, transfers 0.01 USDC (10000 in 6 decimals) from pool to the user's token account.
 - **donate** → Allows anyone to transfer USDC from their token account to the pool token account.
 
+# SolSmile ✨
 ## Important Addresses
 
 | Purpose | Address |
@@ -27,6 +28,14 @@ Built using Anchor framework with Token Program for USDC transfers.
 | USDC Mint Address | `Dk4r51T9fVg5UVq2rT5FC9KA7oGAyiahAQUEjS7QDAt1` |
 | Pool PDA | `SWqn1i9kJK3yiEanzpG9SGq4m4X3vp3ZwTWtGYKq8YN` |
 | Pool Token Account | `8hZyHTQLYoPh6ugqw7K2E6uKp2v19zy71t8EngH8c89o` |
+
+## Environment Setup
+
+1. Copy `.env.example` to `.env.local`
+2. Update the values in `.env.local` with your credentials:
+   - `NEXT_PUBLIC_GEMINI_API_KEY`: Your Google Gemini API key
+   - `NEXT_PUBLIC_SOLANA_NETWORK`: Solana network to use (devnet, testnet, or mainnet-beta)
+   - Other contract addresses can be left as default for development
 
 ## Getting Started
 
